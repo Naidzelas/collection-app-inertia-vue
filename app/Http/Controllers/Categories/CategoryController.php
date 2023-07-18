@@ -17,7 +17,13 @@ class CategoryController extends Controller
     
     public function index(){
         return Inertia::render('Categories',[
-            'default_categories' => DefaultCategory::all()
+            'default_categories' => DefaultCategory::all()->map(function($defaultCategory){
+                return [
+                    'id' => $defaultCategory->id,
+                    'name' => $defaultCategory->name,
+                    'image_path' => $defaultCategory->image_path
+                ];
+            }),
         ]);
     }
 
