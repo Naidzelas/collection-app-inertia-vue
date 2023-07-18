@@ -13,7 +13,7 @@
 
     <Teleport to="body">
         <!-- use the modal component, pass in the prop -->
-        <CategoryModal :show="showModal" @close="showModal = false">
+        <CategoryModal :default_categories="default_categories" :show="showModal" @close="showModal = false">
             <template #header>
                 <h3>CREATE NEW CATEGORY</h3>
             </template>
@@ -23,6 +23,10 @@
 <script setup>
 import CategoryModal from "./Modals/CategoryModal.vue";
 import { ref } from "vue";
+
+defineProps({
+    default_categories: Object,
+})
 
 const showModal = ref(false);
 </script>

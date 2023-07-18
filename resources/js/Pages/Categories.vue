@@ -5,16 +5,13 @@
         Categories
     </h1>
     <div class="grid grid-cols-3 gap-4">
-        <Item></Item>
+        <Item :default_categories="default_categories"></Item>
     </div>
 </template>
 <script setup>
 import Item from "../Components/ItemUnassigned.vue";
-import { router } from "@inertiajs/vue3";
 
 defineProps({
     default_categories: Object,
 });
-
-router.get("/category");
 </script>
