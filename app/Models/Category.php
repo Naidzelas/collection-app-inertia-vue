@@ -10,6 +10,6 @@ class Category extends Model
     protected $table = 'colapp.categories';
 
     protected $fillable = [
-        'name',
+        'default_category_id',
     ];
 }
