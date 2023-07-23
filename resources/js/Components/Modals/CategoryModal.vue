@@ -10,17 +10,16 @@
                     <slot
                         name="body"
                         v-for="default_category in default_categories"
-                        ><div class="border w-20 h-20">
+                    >
+                        <Link
+                            :default_category_id="default_category.id"
+                            as="button"
+                            method="GET"
+                            class="border w-20 h-20"
+                            @click="handleClick(default_category.id); $emit('close');"
+                        >
                             {{ default_category.name }}
-                        </div>
-                    </slot>
-                </div>
-
-                <div class="modal-footer">
-                    <slot name="footer">
-                        <button class="float-right" @click="$emit('close')">
-                            CREATE
-                        </button>
+                        </Link>
                     </slot>
                 </div>
             </div>
@@ -28,9 +27,14 @@
     </Transition>
 </template>
 <script setup>
+import { router } from "@inertiajs/vue3";
 const props = defineProps({
     show: Boolean,
     default_categories: Object,
+    value: Object,
 });
 
+function handleClick(value) {
+    router.get("category/create", {default_category_id: value});
+}
 </script>
