@@ -5,13 +5,26 @@
         Categories
     </h1>
     <div class="grid grid-cols-3 gap-4">
-        <Item :default_categories="default_categories"></Item>
+        <div v-for="category in categories">
+            <div v-if="category.id">
+                <Item :name="category.default_category.name">{{
+                    category.default_category.name
+                }}</Item>
+            </div>
+        </div>
+        <div>
+            <ItemUnassigned
+                :default_categories="default_categories"
+            ></ItemUnassigned>
+        </div>
     </div>
 </template>
 <script setup>
-import Item from "../Components/ItemUnassigned.vue";
+import ItemUnassigned from "../Components/ItemUnassigned.vue";
+import Item from "../Components/Item.vue";
 
 defineProps({
     default_categories: Object,
+    categories: Object,
 });
 </script>
