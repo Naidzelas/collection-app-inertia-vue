@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Categories\Playstation;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Inertia\Inertia;
 
 class PlaystationCollectionController extends BaseController
 {

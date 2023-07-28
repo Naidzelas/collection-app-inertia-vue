@@ -18,15 +18,36 @@ class CategoryController extends Controller
     protected string $model = Category::class;
     
     public function index(){
-        return Inertia::render('Categories',[
-            'default_categories' => DefaultCategory::all()->map(function($defaultCategory){
-                return [
-                    'id' => $defaultCategory->id,
-                    'name' => $defaultCategory->name,
-                    'image_path' => $defaultCategory->image_path
-                ];
-            }),
+        $categories = $this->model::query()->with([
+            'default_category',
+        ])->get();
+        return Inertia::render('Categories',['categories' => $categories,
+        'default_categories' => DefaultCategory::all()->map(function($defaultCategory){
+            return [
+                'id' => $defaultCategory->id,
+                'name' => $defaultCategory->name,
+                'name_long' => $defaultCategory->name_long,
+                'image_path' => $defaultCategory->image_path
+            ];
+        }),
+    ]);
+        //     'categories' => Category::all()->map(function($category){
+        //         return [
+        //             'id' => $category->id,
+        //             'default_category_id' => $category->default_category_id,
+        //         ];
+        //     }),
+        // ]);
+    }
+
+    public function load()
+    {
+        $categories = $this->model::query()->with([
+            'default_category',
         ]);
+        // dd($categories);
+
+        return Inertia::render('Categories', [$categories]);
     }
 
     public function create()

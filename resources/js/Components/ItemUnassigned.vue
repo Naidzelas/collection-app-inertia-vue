@@ -8,7 +8,7 @@
             class="p-20"
             src="https://cdn-icons-png.flaticon.com/512/37/37770.png?w=900&t=st=1689112628~exp=1689113228~hmac=ed4c9ce392ba76a8b7a033b97ea8e3b1ee4a307e986778b964df3a373d3f9e30"
         />
-        CREATE NEW CATEGORY
+        <slot></slot>
     </div>
 
     <Teleport to="body">

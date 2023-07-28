@@ -12,13 +12,12 @@
                         v-for="default_category in default_categories"
                     >
                         <Link
-                            :default_category_id="default_category.id"
                             as="button"
                             method="GET"
                             class="border w-20 h-20"
                             @click="handleClick(default_category.id); $emit('close');"
                         >
-                            {{ default_category.name }}
+                            {{ default_category.name_long }}
                         </Link>
                     </slot>
                 </div>
