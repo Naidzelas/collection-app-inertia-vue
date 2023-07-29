@@ -22,7 +22,6 @@
 <script setup>
 import ItemUnassigned from "../Components/ItemUnassigned.vue";
 import Item from "../Components/Item.vue";
-
 defineProps({
     default_categories: Object,
     categories: Object,

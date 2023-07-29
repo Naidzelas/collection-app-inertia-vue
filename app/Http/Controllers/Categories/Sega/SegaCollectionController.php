@@ -18,14 +18,23 @@ class SegaCollectionController extends Controller
     
     public function index(){
         return Inertia::render('SegaGames/sega', [
-            'sega' => SegaCollection::query()
-                ->when(Request::input('search'), function ($query, $search){
-                    $query->where('name','like', "%{$search}%");
+            'data' => SegaCollection::query()
+                ->when(Request::input('search'), function ($data, $search){
+                    $data->where('name','like', "%{$search}%");
                 })
-                ->paginate(4)
+                ->paginate(10)
                 ->withQueryString(),
                 'filters' => Request::only(['search'])
         ]);
+        // return Inertia::render('SegaGames/sega',[
+        //     'data' => SegaCollection::all()->map(function($data){
+        //         return [
+        //             'id' => $data->id,
+        //             'name' => $data->name,
+        //             'price' => $data->price,
+        //         ];
+        //     }),
+        // ]);
     }
 
     public function create(){
