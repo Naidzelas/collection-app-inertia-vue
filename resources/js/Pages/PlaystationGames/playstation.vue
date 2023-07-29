@@ -1,3 +1,9 @@
 <template>
-    <h1 class="text-3xl font-bold">Playstation</h1>
+    <categoryLayout></categoryLayout>
 </template>
+<script setup>
+import categoryLayout from "../../Shared/CategoryLayout.vue";
+defineOptions({
+    categoryLayout: categoryLayout,
+});
+</script>
