@@ -4,10 +4,11 @@
     >
         Categories
     </h1>
-    <div class="grid grid-cols-3 gap-4">
-        <div v-for="category in categories">
+    <div class="grid grid-cols-3 gap-2 ">
+        <div class="mb-8" v-for="category in categories">
             <div v-if="category.id">
-                <Item :name="category.default_category.name">{{
+                <Item :name="category.default_category.name">
+                {{
                     category.default_category.name
                 }}</Item>
             </div>

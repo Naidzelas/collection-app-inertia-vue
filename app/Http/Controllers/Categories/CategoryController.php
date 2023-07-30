@@ -21,16 +21,17 @@ class CategoryController extends Controller
         $categories = $this->model::query()->with([
             'default_category',
         ])->get();
-        return Inertia::render('Categories',['categories' => $categories,
-        'default_categories' => DefaultCategory::all()->map(function($defaultCategory){
-            return [
-                'id' => $defaultCategory->id,
-                'name' => $defaultCategory->name,
-                'name_long' => $defaultCategory->name_long,
-                'image_path' => $defaultCategory->image_path
-            ];
-        }),
-    ]);
+
+        return Inertia::render('Categories', ['categories' => $categories,
+            'default_categories' => DefaultCategory::all()->map(function($defaultCategory){
+                return [
+                    'id' => $defaultCategory->id,
+                    'name' => $defaultCategory->name,
+                    'name_long' => $defaultCategory->name_long,
+                    'image_path' => $defaultCategory->image_path
+                ];
+            }),
+        ]);
         //     'categories' => Category::all()->map(function($category){
         //         return [
         //             'id' => $category->id,
