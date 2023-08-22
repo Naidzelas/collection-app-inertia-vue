@@ -39,12 +39,30 @@ class SegaCollectionController extends Controller
 
     public function create(){
        
+        // $validated = Request::validate ([
+        //     'name' => 'required'
+        // ]);
+        
+        // SegaCollection::create($validated)->save();
+    
+        return Inertia::render('ItemLayout');
+    }
+
+    public function store(){
+       
+      return $this->update();
+    }
+
+    public function update(){
+       
         $validated = Request::validate ([
-            'name' => 'required'
+            'name' => 'string',
+            'price' => 'int',
+            'condition' => 'int',
         ]);
         
         SegaCollection::create($validated)->save();
     
-        return Inertia::render('SegaGames/sega');
+        return Inertia::render('Categories');
     }
 }

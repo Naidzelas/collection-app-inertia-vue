@@ -12,5 +12,6 @@ class SegaCollection extends Model
     protected $fillable = [
         'name',
         'price',
+        'condition',
     ];
 }

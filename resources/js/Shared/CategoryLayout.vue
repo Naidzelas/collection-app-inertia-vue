@@ -14,7 +14,8 @@
         <Link
             class="float-right shadow-md w-20 h-10 mb-2 bg-[#fcf4e5] hover:bg-[#33052c] hover:text-[#f5e9cf]"
             as="button"
-            href="/"
+            method="GET"
+            @click="handleClick();"
         >
             New
         </Link>
@@ -89,9 +90,12 @@ let props = defineProps({
 });
 
 let search = ref('');
-// console.log(search);
+
+function handleClick() {
+    router.get("/category/sega/create");
+}
+
 watch(search, (value) => {
-    console.log(search);
     router.get(
         "/category/sega",
         { search: value },
