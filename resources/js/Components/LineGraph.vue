@@ -1,9 +1,5 @@
 <template>
-    <v-chart
-        class="h-96 w-full"
-        :option="option"
-        autoresize
-    />
+    <v-chart :option="option" autoresize />
 </template>
 
 <script setup>
@@ -33,15 +29,30 @@ provide(THEME_KEY, "light");
 const option = ref({
     xAxis: {
         type: "category",
+        splitLine: {
+            show: false,
+        },
         data: ["A", "B", "C", "A", "B", "C", "B", "C"],
     },
     yAxis: {
         type: "value",
+        splitLine: {
+            show: false,
+        },
+        axisLabel: {
+            inside: true,
+            align: 'center',
+            showMinLabel: false,
+        },
+        position: 'right',
+        interval: 200,
     },
     series: [
         {
             data: [120, 200, 150, 200, 120, 200, 444, 555],
             type: "line",
+            smooth: true,
+            showSymbol: false,
         },
     ],
 });
