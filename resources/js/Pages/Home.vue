@@ -4,14 +4,25 @@
     >
         Home
     </h1>
-    <div class="grid grid-rows-2 grid-flow-col gap-4">
-        <div class="col-span-4 border rounded-tr-[50px] rounded-tl-[50px] rounded-lg">
+    <div class="grid grid-flow-row-dense grid-cols-4 grid-rows-1 gap-4">
+        <div
+            class="col-span-4 row-span-1 border rounded-tr-[50px] rounded-tl-[50px] rounded-lg"
+        >
+            <LineGraph class="h-96 w-full"></LineGraph>
+        </div>
+
+        <div class="rounded-lg rounded-bl-[50px] col-span-1 border h-64">
             <LineGraph></LineGraph>
         </div>
-        <div class="col-span-1 border">Biggest increase in collection</div>
-        <div class="col-span-1 border">Biggest loser in collection</div>
-        <div class="col-span-1 border">Biggest individual increase</div>
-        <div class="col-span-1 border">Biggest individual decrease</div>
+        <div class="rounded-lg col-span-1 border h-64">
+            <LineGraph></LineGraph>
+        </div>
+        <div class="rounded-lg col-span-1 border h-64">
+            <LineGraph></LineGraph>
+        </div>
+        <div class="rounded-br-[50px] rounded-lg col-span-1 border h-64">
+            <LineGraph></LineGraph>
+        </div>
     </div>
     <div class="grid grid-rows-2 grid-flow-col gap-4 mt-4">
         <div class="row-span-5 rounded-tl-[50px] rounded-tr-lg h-max border">
